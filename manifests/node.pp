@@ -2,14 +2,14 @@
 #
 # Usage:
 #
-# class { 'munin::node' :
-#   allowed_ips = [ '192.168.1.56', '10.10.10.78', ],
-#   ensure      = running,
-#   enable      = true,
-# }
+#  class { 'munin::node':
+#    allowed_ips    => [ '192.168.1.10', '192.168.1.20', ],
+#    listen_port    => '4949',
+#    listen_address => '*',
+#    ensure_service => running,
+#    enable_service => true,
 #
-# TODO:
-# - how about plugins, how to disable/enable?
+#  }
 
 class munin::node (
     $listen_address = '*',
@@ -20,15 +20,14 @@ class munin::node (
     $enable_service = true,
 ) {
 
-  # use $::osfamily instead??
   case $::operatingsystem {
     centos, redhat, amazon: {
+      $log_dir      = '/var/log/munin-node'
       $cidr_package = 'perl-Net-CIDR'
-      $log_dir = '/var/log/munin-node'
     }
     debian, ubuntu: {
+      $log_dir      = '/var/log/munin'
       $cidr_package = 'libnet-cidr-perl'
-      $log_dir = '/var/log/munin'
     }
     default: { fail ("Error: Unrecognized operating system = ${::operatingsystem}") }
   }
@@ -38,7 +37,7 @@ class munin::node (
   }
 
   package { 'munin-node':
-    ensure => installed,
+    ensure  => installed,
     require => Package[$cidr_package],
   }
 
