@@ -80,7 +80,7 @@ class munin::node (
     }
 
     exec { 'plugins-minimal':
-      command     => 'bash /tmp/plugins-minimal.sh',
+      command     => 'bash /etc/munin/plugins-minimal.sh',
       user        => 'root',
       group       => 'root',
       refreshonly => true,
