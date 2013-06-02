@@ -1,5 +1,5 @@
 name 'proletaryo-munin'
-version '0.1.0'
+version '0.2.0'
 summary "munin-node installation"
 description "munin-node installation & management module for CentOS/Ubuntu/AWS Linux"
 project_page "https://github.com/proletaryo/puppet-munin"
