@@ -23,7 +23,6 @@ then
   ln -s -v $DIR_SRC_PLUGIN/if_err_     $DIR_DEP_PLUGIN/if_err_eth0
   ln -s -v $DIR_SRC_PLUGIN/if_         $DIR_DEP_PLUGIN/if_eth0
   ln -s -v $DIR_SRC_PLUGIN/interrupts  $DIR_DEP_PLUGIN/interrupts
-  ln -s -v $DIR_SRC_PLUGIN/diskstats   $DIR_DEP_PLUGIN/diskstats
   ln -s -v $DIR_SRC_PLUGIN/iostat_ios  $DIR_DEP_PLUGIN/iostat_ios
   ln -s -v $DIR_SRC_PLUGIN/irqstats    $DIR_DEP_PLUGIN/irqstats
   ln -s -v $DIR_SRC_PLUGIN/load        $DIR_DEP_PLUGIN/load
