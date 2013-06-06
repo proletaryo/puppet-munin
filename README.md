@@ -43,7 +43,7 @@ This module adheres to [Semantic Versioning 2.0.0-rc.2](http://semver.org/).
   if_err_eth0 -> /usr/share/munin/plugins/if_err_
   if_eth0 -> /usr/share/munin/plugins/if_
   interrupts -> /usr/share/munin/plugins/interrupts
-  iostat -> /usr/share/munin/plugins/iostat
+  iostat_ios -> /usr/share/munin/plugins/iostat_ios
   irqstats -> /usr/share/munin/plugins/irqstats
   load -> /usr/share/munin/plugins/load
   memory -> /usr/share/munin/plugins/memory
