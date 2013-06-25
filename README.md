@@ -11,7 +11,7 @@ This puppet module automates installation/management of the munin-node package
 This module adheres to [Semantic Versioning 2.0.0-rc.2](http://semver.org/).
 
 ## Parameters
-  * `ensure`: installed | absent | purged, default=installed
+  * `ensure`: installed OR absent OR purged, default=installed
   * `listen_address`: default='*'
   * `listen_port`:    default='4949'
   * `ignore_files`:   default=[]
@@ -29,6 +29,13 @@ This module adheres to [Semantic Versioning 2.0.0-rc.2](http://semver.org/).
       ensure_service  => running,
       enable_service  => true,
       minimal_plugins => true, 
+    }
+
+## Automatically add munin nodes to munin master
+
+    # tested to work on munin 2.0.6, relies on includedir
+    node 'munin-master.mydomain.local' {
+      File <<| tag == 'munin-node' |>>
     }
 
 ## Minimal plugins

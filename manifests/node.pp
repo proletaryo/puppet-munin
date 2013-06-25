@@ -90,4 +90,16 @@ class munin::node (
 
   }
 
+  # NOTE: export munin-node info
+  # this automatically adds the node to munin server 
+  #   for monitoring once realized
+  @@file { "/etc/munin/munin-conf.d/${::fqdn}.conf":
+    ensure  => file,
+    owner   => root,
+    group   => root,
+    mode    => '0644',
+    tag     => 'munin-node',
+    content => template('munin/munin-conf-node-info.erb'),
+  }
+
 }
