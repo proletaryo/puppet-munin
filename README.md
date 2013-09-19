@@ -16,6 +16,7 @@ This module adheres to [Semantic Versioning 2.0.0-rc.2](http://semver.org/).
   * `listen_port`:    default='4949'
   * `ignore_files`:   default=[]
   * `allowed_ips`:    default=[]
+  * `eipaddress`:     default=facter ipaddress, what IP to put in munin master`s node config for this server
   * `ensure_service`: default=running
   * `enable_service`: default=true
   * `minimal_plugins`: boolean, install minimal plugins only, default=false
@@ -26,6 +27,7 @@ This module adheres to [Semantic Versioning 2.0.0-rc.2](http://semver.org/).
       allowed_ips     => [ '192.168.1.10', '192.168.1.20', ],
       listen_port     => '4949',
       listen_address  => '*',
+      eipaddress      => '192.168.0.1', # explicit IP address
       ensure_service  => running,
       enable_service  => true,
       minimal_plugins => true, 

@@ -3,6 +3,7 @@
 # Usage:
 #
 #  class { 'munin::node':
+#    eipaddress     => '192.168.0.1', # explicit IP address
 #    allowed_ips    => [ '192.168.1.10', '192.168.1.20', ],
 #    listen_port    => '4949',
 #    listen_address => '*',
@@ -13,6 +14,7 @@
 
 class munin::node (
     $ensure          = installed,
+    $eipaddress      = undef,
     $listen_address  = '*',
     $listen_port     = '4949',
     $ignore_files    = [],
