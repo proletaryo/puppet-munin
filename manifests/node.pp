@@ -24,12 +24,12 @@ class munin::node (
     $minimal_plugins = false,
 ) {
 
-  case $::operatingsystem {
-    centos, redhat, amazon: {
+  case $::osfamily {
+    'redhat': {
       $log_dir      = '/var/log/munin-node'
       $cidr_package = 'perl-Net-CIDR'
     }
-    debian, ubuntu: {
+    'debian': {
       $log_dir      = '/var/log/munin'
       $cidr_package = 'libnet-cidr-perl'
     }
