@@ -54,14 +54,14 @@ class munin::node (
   }
 
   file { 'munin-node.conf':
-    ensure    => file,
-    owner     => root,
-    group     => root,
-    mode      => '0644',
-    path      => '/etc/munin/munin-node.conf',
-    content   => template('munin/munin-node.conf.erb'),
-    require   => Package['munin-node'],
-    notify    => Service['munin-node'],
+    ensure  => file,
+    owner   => root,
+    group   => root,
+    mode    => '0644',
+    path    => '/etc/munin/munin-node.conf',
+    content => template('munin/munin-node.conf.erb'),
+    require => Package['munin-node'],
+    notify  => Service['munin-node'],
   }
 
   # NOTE: minimize enabled plugins to decrease graphs
@@ -73,12 +73,12 @@ class munin::node (
 
     # put the script to /tmp/ & then run it via exec
     file { 'plugins-minimal.sh':
-      path   => '/etc/munin/plugins-minimal.sh',
-      owner  => 'root',
-      group  => 'root',
-      mode   => '600',
-      source => 'puppet:///modules/munin/plugins-minimal.sh',
-      require   => Package['munin-node'],
+      path    => '/etc/munin/plugins-minimal.sh',
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0600',
+      source  => 'puppet:///modules/munin/plugins-minimal.sh',
+      require => Package['munin-node'],
     }
 
     exec { 'plugins-minimal':
